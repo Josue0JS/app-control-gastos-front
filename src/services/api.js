@@ -1,5 +1,5 @@
 let port = "8080"
-const URL_BASE = "localhost:" + port + "/"
+const URL_BASE = "https://app-gastos-personales-api.onrender.com" + "/"
 
 export let end_points = {
     users: URL_BASE + "users/", /* localhost:8080/users/ */
