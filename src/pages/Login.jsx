@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react"
 import { end_points } from '../services/api'
+import { redirectAlert } from "../helpers/alerts"
+import { saveLocalStorage } from "../helpers/local-storage"
 const Login = () => {
   const [getEmail, setEmail] = useState("")
   const [getPassword, setPassword] = useState("")
@@ -23,12 +25,12 @@ const Login = () => {
   function signIn() {
     let user = findUser()
     if (user) {
-      alert("Bienvenido al sistema " + user.nombres)
+      saveLocalStorage("user", user)
+      redirectAlert("Bienvenido al sistema " + user.nombres, "Será redireccionado al panel pricipal en", "success", "/dashboard")
     } else {
       alert("Error de credenciales...")
     }
   }
-
 
   console.log(users)
 
