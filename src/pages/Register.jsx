@@ -27,12 +27,13 @@ const Register = () => {
 
   function saveUser() {
     let user = { nombres, email, password, documento, tipoDocumento, edad };
-    fetch(end_points.users, {
-      body: JSON.stringify(user),
-      method: "POST",
-    })
-      .then((response) => response.json())
-      .then((data) => console.log(data));
+    console.log(user);
+    // fetch(end_points.users, {
+    //   body: JSON.stringify(user),
+    //   method: "POST",
+    // })
+    //   .then((response) => response.json())
+    //   .then((data) => console.log(data));
   }
 
   useEffect(() => {
@@ -75,7 +76,8 @@ const Register = () => {
                   </label>
                 </div>
                 <input
-                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  onChange={(e) => setNombres(e.target.value)}
+                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="John Doe"
                   type="text"
                 />
@@ -87,7 +89,8 @@ const Register = () => {
                   </label>
                 </div>
                 <input
-                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  onChange={(e) => setEmail(e.target.value)}
+                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="Email"
                   type="email"
                 />
@@ -99,7 +102,8 @@ const Register = () => {
                   </label>
                 </div>
                 <input
-                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  onChange={(e) => setPassword(e.target.value)}
+                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="••••••••"
                   type="password"
                 />
@@ -111,13 +115,15 @@ const Register = () => {
                   </label>
                 </div>
                 <select
-                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  onChange={(e) => setTipoDocumento(e.target.value)}
+                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="Documento"
                   type="text"
                 >
-                  <option value="">CC</option>
-                  <option value="">TI</option>
-                  <option value="">PP</option>
+                  <option value="">Seleccione</option>
+                  <option value="CC">CC</option>
+                  <option value="TI">TI</option>
+                  <option value="PP">PP</option>
                 </select>
               </div>
               <div class="flex flex-col gap-2">
@@ -127,7 +133,8 @@ const Register = () => {
                   </label>
                 </div>
                 <input
-                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  onChange={(e) => setDocumento(e.target.value)}
+                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="Documento"
                   type="text"
                 />
@@ -139,13 +146,15 @@ const Register = () => {
                   </label>
                 </div>
                 <input
-                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white dark:bg-slate-900 px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
+                  onChange={(e) => setEdad(e.target.value)}
+                  class="flex w-full rounded-lg border border-slate-200 dark:border-slate-800 bg-white px-4 py-3 text-sm ring-offset-white placeholder:text-slate-500 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50"
                   placeholder="Documento"
                   type="text"
                 />
               </div>
               <div class="flex flex-col gap-4 pt-4">
                 <button
+                  onClick={saveUser}
                   type="button"
                   class="inline-flex items-center justify-center rounded-lg bg-[#006600] px-4 py-3 text-sm font-bold text-white transition-colors hover:bg-[#006600]/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#006600] focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50"
                 >
